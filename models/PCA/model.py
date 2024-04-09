@@ -67,7 +67,7 @@ class Net(CNN):
             # synthetic data
             src, tgt = data_dict['features']
             ns_src, ns_tgt = data_dict['ns']
-            A_src, A_tgt = data_dict['As']
+            A_src, A_tgt = data_dict['As']  # 邻接矩阵
 
             U_src = src[:, :src.shape[1] // 2, :]
             F_src = src[:, src.shape[1] // 2:, :]
@@ -92,7 +92,9 @@ class Net(CNN):
 
                 if i == self.gnn_layer - 2:
                     cross_graph = getattr(self, 'cross_graph_{}'.format(i))
+                    # Emb1 * S * Emb2
                     new_emb1 = cross_graph(torch.cat((emb1, torch.bmm(s, emb2)), dim=-1))
+                    # 用一个简单的线性层聚合 Emb2 * S^T * Emb1
                     new_emb2 = cross_graph(torch.cat((emb2, torch.bmm(s.transpose(1, 2), emb1)), dim=-1))
                     emb1 = new_emb1
                     emb2 = new_emb2

@@ -123,6 +123,7 @@ class Siamese_Gconv(nn.Module):
     def forward(self, g1: Tuple[Tensor, Tensor, Tensor, int], *args) -> Union[Tensor, List[Tensor]]:
         r"""
         Forward computation of Siamese Gconv.
+        emb1, emb2 = gnn_layer([A_src, emb1], [A_tgt, emb2])
 
         :param g1: The first graph, which is a tuple of (:math:`(b\times n\times n)` {0,1} adjacency matrix,
          :math:`(b\times n\times d)` input node embedding, normalize connectivity matrix or not)

@@ -4,16 +4,16 @@ import torch
 import numpy as np
 import scipy.sparse as ssp
 
-if 'SPHINX' not in os.environ:
-    from torch.utils.cpp_extension import load
-
-    sparse_dot = load(name='sparse_dot',
-                      sources=['src/extension/sparse_dot/sparse_dot.cpp',
-                               'src/extension/sparse_dot/csr_dot_csc_cuda.cu',
-                               'src/extension/sparse_dot/csr_dot_diag_cuda.cu'],
-                      extra_include_paths=[
-                          '/usr/include/python{}.{}/'.format(sys.version_info.major, sys.version_info.minor)]
-                      )
+# if 'SPHINX' not in os.environ:
+#     from torch.utils.cpp_extension import load
+#
+#     sparse_dot = load(name='sparse_dot',
+#                       sources=['src/extension/sparse_dot/sparse_dot.cpp',
+#                                'src/extension/sparse_dot/csr_dot_csc_cuda.cu',
+#                                'src/extension/sparse_dot/csr_dot_diag_cuda.cu'],
+#                       extra_include_paths=[
+#                           '/usr/include/python{}.{}/'.format(sys.version_info.major, sys.version_info.minor)]
+#                       )
 
 
 class CSXMatrix3d:
