@@ -180,7 +180,7 @@ _ThinkMatch_ also supports the following graph matching settings:
 
 Get the recommended docker image by
 ```bash
-docker pull runzhongwang/thinkmatch:torch1.6.0-cuda10.1-cudnn7-pyg1.6.3-pygmtools0.3.2
+docker pull runzhongwang/thinkmatch:torch1.6.0-cuda10.1-cudnn7-pyg1.6.3-pygmtools0.5.1
 ```
 
 Other combinations of torch and cuda are also available. See available images at [docker hub](https://hub.docker.com/r/runzhongwang/thinkmatch/tags).
@@ -305,7 +305,7 @@ Note: All following datasets can be automatically downloaded and unzipped by `py
    
     1. Download the IMC-PT-SparseGM dataset from [google drive](https://drive.google.com/file/d/1C3xl_eWaCG3lL2C3vP8Fpsck88xZOHtg/view?usp=sharing) or [baidu drive (code: g2cj)](https://pan.baidu.com/s/1ZQ3AMqoHtE_uA86GPf2h4w)
 
-    1. Unzip the dataset and make sure it looks like ``data/IMC_PT_SparseGM/annotations``
+    1. Unzip the dataset and make sure it looks like ``data/IMC-PT-SparseGM/annotations`` for 50 anchor points and ``data/IMC-PT-SparseGM/annotations_100`` for 100 anchor points
 
     Please cite the following papers if you use IMC-PT-SparseGM dataset:
     ```
@@ -387,3 +387,21 @@ We also offer the following chat rooms if you are more comfortable with them:
 * QQ Group (for Chinese users)/QQ群(中文用户): 696401889
   
   [![ThinkMatch/pygmtools交流群](http://pub.idqqimg.com/wpa/images/group.png)](https://qm.qq.com/cgi-bin/qm/qr?k=NlPuwwvaFaHzEWD8w7jSOTzoqSLIM80V&jump_from=webapi&authKey=chI2htrWDujQed6VtVid3V1NXEoJvwz3MVwruax6x5lQIvLsC8BmpmzBJOCzhtQd)
+
+## Citing ThinkMatch
+
+If you find any of the models useful in your research, please cite the corresponding papers (BibTeX citations are available for each model in the [``models/``](https://github.com/Thinklab-SJTU/ThinkMatch/tree/master/models) directory).
+
+If you are using the data/benchmark protocol, you are also using ``pygmtools``. Please cite the following JMLR paper:
+```
+@article{wang2024pygm,
+  author  = {Runzhong Wang and Ziao Guo and Wenzheng Pan and Jiale Ma and Yikai Zhang and Nan Yang and Qi Liu and Longxuan Wei and Hanxue Zhang and Chang Liu and Zetian Jiang and Xiaokang Yang and Junchi Yan},
+  title   = {Pygmtools: A Python Graph Matching Toolkit},
+  journal = {Journal of Machine Learning Research},
+  year    = {2024},
+  volume  = {25},
+  number  = {33},
+  pages   = {1-7},
+  url     = {https://jmlr.org/papers/v25/23-0572.html},
+}
+```
