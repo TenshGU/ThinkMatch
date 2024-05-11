@@ -42,8 +42,8 @@ class Net(CNN):
         if 'images' in data_dict:
             # real image data
             src, tgt = data_dict['images']
-            P_src, P_tgt = data_dict['Ps']
-            ns_src, ns_tgt = data_dict['ns']
+            P_src, P_tgt = data_dict['Ps']  # point set containing point coordinates
+            ns_src, ns_tgt = data_dict['ns']  # number of exact points
             A_src, A_tgt = data_dict['As']
 
             # extract feature

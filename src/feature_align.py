@@ -30,7 +30,7 @@ def feature_align(raw_feature: Tensor, P: Tensor, ns_t: Tensor, ori_size: tuple,
     channel_num = raw_feature.shape[1]  # feature channel
     n_max = P.shape[1]  # number of points
 
-    ori_size = torch.tensor(ori_size, dtype=torch.float32, device=device)  # self.rescale
+    ori_size = torch.tensor(ori_size, dtype=torch.float32, device=device)  # self.rescale (256 * 256)
     F = torch.zeros(batch_num, channel_num, n_max, dtype=torch.float32, device=device)
     for idx, feature in enumerate(raw_feature):
         n = ns_t[idx]
@@ -95,7 +95,7 @@ def bilinear_interpolate(im: Tensor, x: Tensor, y: Tensor, device=None):
     y1 = y0 + 1
 
     # 用w和h构建x和y
-    x0 = torch.clamp(x0, 0, im.shape[2] - 1)
+    x0 = torch.clamp(x0, 0, im.shape[2] - 1)  # 限制坐标范围
     x1 = torch.clamp(x1, 0, im.shape[2] - 1)
     y0 = torch.clamp(y0, 0, im.shape[1] - 1)
     y1 = torch.clamp(y1, 0, im.shape[1] - 1)
